@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stausimulation", "Stausimulation\Stausimulation\Stausimulation.csproj", "{B375865F-314A-437C-8951-3B100C31BD53}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StausimulationContent", "Stausimulation\StausimulationContent\StausimulationContent.contentproj", "{BB0F4B7B-60DD-4089-86F6-B60C591E6049}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Designer", "Designer\Designer.csproj", "{AB8FEDCA-D36C-4608-8A7B-CE14CEE36778}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B375865F-314A-437C-8951-3B100C31BD53}.Debug|x86.ActiveCfg = Debug|x86
+		{B375865F-314A-437C-8951-3B100C31BD53}.Debug|x86.Build.0 = Debug|x86
+		{B375865F-314A-437C-8951-3B100C31BD53}.Release|x86.ActiveCfg = Release|x86
+		{B375865F-314A-437C-8951-3B100C31BD53}.Release|x86.Build.0 = Release|x86
+		{BB0F4B7B-60DD-4089-86F6-B60C591E6049}.Debug|x86.ActiveCfg = Debug|x86
+		{BB0F4B7B-60DD-4089-86F6-B60C591E6049}.Release|x86.ActiveCfg = Release|x86
+		{AB8FEDCA-D36C-4608-8A7B-CE14CEE36778}.Debug|x86.ActiveCfg = Debug|x86
+		{AB8FEDCA-D36C-4608-8A7B-CE14CEE36778}.Debug|x86.Build.0 = Debug|x86
+		{AB8FEDCA-D36C-4608-8A7B-CE14CEE36778}.Release|x86.ActiveCfg = Release|x86
+		{AB8FEDCA-D36C-4608-8A7B-CE14CEE36778}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
