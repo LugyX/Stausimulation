@@ -16,13 +16,31 @@ namespace Designer
             InitializeComponent();
         }
 
-        FieldType frm;
+        FieldType frm;        
+
+        Point pos = new Point();
+        public Point Pos
+        {
+            get { return pos; }
+            set { pos = value; }
+        }
+
+        string[,] str_map;
+        public string[,] Str_map
+        {
+            get { return str_map; }
+            set { str_map = value; }
+        }
+
+        Bitmap bit_map;
+        public Bitmap Bit_map
+        {
+            get { return bit_map; }
+            set { bit_map = value; }
+        }
 
         bool locked = false;
-        Point pos = new Point();
-        Bitmap bit_map;
         int SCREEN_WIDTH, SCREEN_HEIGHT;
-        string[,] str_map;        
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -60,6 +78,7 @@ namespace Designer
                 {                    
                     locked = true;
                     lblLock.Text = "Gesperrt";
+                    btnEvent.Visible = true;
                 }
             }
             else if (e.Button == MouseButtons.Right)
@@ -68,21 +87,21 @@ namespace Designer
                 {
                     locked = false;
                     lblLock.Text = "Entsperrt";
+                    btnEvent.Visible = false;
                 }
             }
-            else if (e.Button == MouseButtons.Middle)
-            {
-                if (locked)
-                {
-                    frm = new FieldType();
-                    frm.Show();
-                    /*
-                    if (frm.Result != null && frm.Result != "")
-                    {
-                        str_map[pos.X, pos.Y] = frm.Result;
-                    }*///TODO
-                }
-            }
+        }
+
+        private void btnEvent_Click(object sender, EventArgs e)
+        {
+            frm = new FieldType(this);
+            frm.Show();
+
+            lblLock.Text = "Entsperrt";
+            btnEvent.Visible = false;
+            locked = false;
+
+            picBox.Refresh();
         }
     }
 }

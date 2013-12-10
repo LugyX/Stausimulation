@@ -34,12 +34,13 @@
             this.lblLock = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.dateiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.speichernToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.optionenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.höheToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.breiteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
+            this.breiteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripTextBox2 = new System.Windows.Forms.ToolStripTextBox();
-            this.speichernToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnEvent = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picBox)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -99,6 +100,12 @@
             this.dateiToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
             this.dateiToolStripMenuItem.Text = "Datei";
             // 
+            // speichernToolStripMenuItem
+            // 
+            this.speichernToolStripMenuItem.Name = "speichernToolStripMenuItem";
+            this.speichernToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.speichernToolStripMenuItem.Text = "Speichern";
+            // 
             // optionenToolStripMenuItem
             // 
             this.optionenToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -113,38 +120,44 @@
             this.höheToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripTextBox1});
             this.höheToolStripMenuItem.Name = "höheToolStripMenuItem";
-            this.höheToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.höheToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
             this.höheToolStripMenuItem.Text = "Höhe";
-            // 
-            // breiteToolStripMenuItem
-            // 
-            this.breiteToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripTextBox2});
-            this.breiteToolStripMenuItem.Name = "breiteToolStripMenuItem";
-            this.breiteToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.breiteToolStripMenuItem.Text = "Breite";
             // 
             // toolStripTextBox1
             // 
             this.toolStripTextBox1.Name = "toolStripTextBox1";
             this.toolStripTextBox1.Size = new System.Drawing.Size(100, 23);
             // 
+            // breiteToolStripMenuItem
+            // 
+            this.breiteToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripTextBox2});
+            this.breiteToolStripMenuItem.Name = "breiteToolStripMenuItem";
+            this.breiteToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
+            this.breiteToolStripMenuItem.Text = "Breite";
+            // 
             // toolStripTextBox2
             // 
             this.toolStripTextBox2.Name = "toolStripTextBox2";
             this.toolStripTextBox2.Size = new System.Drawing.Size(100, 23);
             // 
-            // speichernToolStripMenuItem
+            // btnEvent
             // 
-            this.speichernToolStripMenuItem.Name = "speichernToolStripMenuItem";
-            this.speichernToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.speichernToolStripMenuItem.Text = "Speichern";
+            this.btnEvent.Location = new System.Drawing.Point(227, 302);
+            this.btnEvent.Name = "btnEvent";
+            this.btnEvent.Size = new System.Drawing.Size(75, 23);
+            this.btnEvent.TabIndex = 3;
+            this.btnEvent.Text = "Ereignis";
+            this.btnEvent.UseVisualStyleBackColor = true;
+            this.btnEvent.Visible = false;
+            this.btnEvent.Click += new System.EventHandler(this.btnEvent_Click);
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(314, 324);
+            this.Controls.Add(this.btnEvent);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.picBox);
@@ -176,6 +189,7 @@
         private System.Windows.Forms.ToolStripMenuItem breiteToolStripMenuItem;
         private System.Windows.Forms.ToolStripTextBox toolStripTextBox2;
         private System.Windows.Forms.ToolStripMenuItem speichernToolStripMenuItem;
+        private System.Windows.Forms.Button btnEvent;
     }
 }
 

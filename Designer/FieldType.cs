@@ -11,17 +11,14 @@ namespace Designer
 {
     public partial class FieldType : Form
     {
-        public FieldType()
+        FormMain fr;
+        public FieldType(FormMain f)
         {
+            fr = f;
             InitializeComponent();
         }
 
         string result;
-        public string Result
-        {
-            get { return result;  }
-            set { result = value; }
-        }
 
         private void cBoxNorden_CheckedChanged(object sender, EventArgs e)
         {
@@ -75,19 +72,14 @@ namespace Designer
         private void btnCreate_Click(object sender, EventArgs e)
         {
             if (combField.Text == "Unterscheidungsfeld")
-            {
                 result += "U,";
-            }
             else if (combField.Text == "Spawnfeld")
-            {
                 result += "S,";
-            }
             else if (combField.Text == "Despawnfeld")
-            {
                 result += "D,";
-            }
             else
             {
+                MessageBox.Show("Feld nicht bekannt");
                 return;
             }
 
@@ -110,8 +102,13 @@ namespace Designer
 
             if (result != null)
             {
+                fr.Str_map[fr.Pos.X, fr.Pos.Y] = result;
+                fr.Bit_map.SetPixel(fr.Pos.X, fr.Pos.Y, Color.Black);                  
+
                 this.Close();
             }
+            else
+                return;
         }
     }
 }
