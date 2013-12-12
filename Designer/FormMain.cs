@@ -117,6 +117,10 @@ namespace Designer
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
+            result = "";
+
+            int gültig = 1;
+
             if (combField.Text == "Unterscheidungsfeld")
                 result += "U,";
             else if (combField.Text == "Spawnfeld")
@@ -130,18 +134,92 @@ namespace Designer
             }
 
             if (cBoxNorden.Checked)
-                result += "N>" + txtNorden.Text + ",";
-            if (cBoxOsten.Checked)
-                result += "O>" + txtOsten.Text + ",";
-            if (cBoxSüden.Checked)
-                result += "S>" + txtSüden.Text + ",";
-            if (cBoxWesten.Checked)
-                result += "W>" + txtWesten.Text + ",";
-
-            if (result != null)
             {
+                if (pos.Y -(Convert.ToInt32(txtNorden.Text)) < 1)
+                {
+                    gültig = 0;
+                }
+                
+                result += "N>" + txtNorden.Text + ",";
+            }
+           
+            
+            if (cBoxOsten.Checked)
+            {
+                if (pos.X + (Convert.ToInt32(txtOsten.Text)) < 290)
+                {
+                    gültig = 0;
+                }
 
-                txtManX.Text = string.Empty;
+                result += "O>" + txtOsten.Text + ",";
+            }
+          
+            
+            if (cBoxSüden.Checked)
+            {
+                if (pos.Y + (Convert.ToInt32(txtSüden.Text)) < 272)
+                {
+                    gültig = 0;
+                }
+
+                result += "S>" + txtSüden.Text + ",";
+            }
+          
+            
+            if (cBoxWesten.Checked)
+            {
+                if (pos.X - (Convert.ToInt32(txtNorden.Text)) < 1)
+                {
+                    gültig = 0;
+                }
+
+                result += "W>" + txtWesten.Text + ",";
+            }
+
+
+            if (result != null && gültig == 1)
+            {
+                if (cBoxNorden.Checked)
+                {
+                    for (int n = (pos.Y - 1); n >= (pos.Y - Convert.ToInt32(txtNorden.Text)); n--)
+                    {
+                        bit_map.SetPixel(pos.X, n, Color.Blue);
+                    }
+                }
+                if (cBoxOsten.Checked)
+                {
+                    for (int n = (pos.X + 1); n <= (pos.X + Convert.ToInt32(txtOsten.Text)); n++)
+                    {
+                        bit_map.SetPixel(n, pos.Y, Color.Blue);
+                    }
+                }
+                if (cBoxSüden.Checked)
+                {
+                    for (int n = (pos.Y + 1); n <= (pos.Y + Convert.ToInt32(txtSüden.Text)); n++)
+                    {
+                        bit_map.SetPixel(pos.X, n, Color.Blue);
+                    }
+                }
+                if (cBoxWesten.Checked)
+                {
+                    for (int n = (pos.X - 1); n >= (pos.X - Convert.ToInt32(txtWesten.Text)); n--)
+                    {
+                        bit_map.SetPixel(n, pos.Y, Color.Blue);
+                    }
+                }
+
+
+
+
+                if (cBoxOsten.Checked)
+
+                    if (cBoxSüden.Checked)
+
+                        if (cBoxWesten.Checked)
+
+
+
+                            txtManX.Text = string.Empty;
                 txtManY.Text = string.Empty;
 
                 str_map[pos.X, pos.Y] = result;
@@ -161,7 +239,10 @@ namespace Designer
                 this.ClientSize = new System.Drawing.Size(308, 424);
             }
             else
-                return;            
+            {
+                MessageBox.Show("Falscher Wert");
+                return;
+            }
         }
 
         private void cBoxNorden_CheckedChanged(object sender, EventArgs e)
@@ -215,46 +296,58 @@ namespace Designer
 
         private void button3_Click(object sender, EventArgs e)
         {
-            pos.Y = pos.Y - 1;
-            lblPos.Text = "Pos: " + "X->" + pos.X + " | " + "Y->" + pos.Y;
-
-            if (txtManY.Text != String.Empty)
+            if (pos.Y > 1)
             {
-                txtManY.Text = Convert.ToString(pos.Y);
+                pos.Y = pos.Y - 1;
+                lblPos.Text = "Pos: " + "X->" + pos.X + " | " + "Y->" + pos.Y;
+
+                if (txtManY.Text != String.Empty)
+                {
+                    txtManY.Text = Convert.ToString(pos.Y);
+                }
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-        
-            pos.X = pos.X - 1;
-            lblPos.Text = "Pos: " + "X->" + pos.X + " | " + "Y->" + pos.Y;
 
-            if (txtManX.Text != String.Empty)
+            if (pos.X > 1)
             {
-                txtManX.Text = Convert.ToString(pos.X);
+                pos.X = pos.X - 1;
+                lblPos.Text = "Pos: " + "X->" + pos.X + " | " + "Y->" + pos.Y;
+
+                if (txtManX.Text != String.Empty)
+                {
+                    txtManX.Text = Convert.ToString(pos.X);
+                }
             }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            pos.X = pos.X + 1;
-            lblPos.Text = "Pos: " + "X->" + pos.X + " | " + "Y->" + pos.Y;
-
-            if (txtManX.Text != String.Empty)
+            if (pos.X < 290)
             {
-                txtManX.Text = Convert.ToString(pos.X);
+                pos.X = pos.X + 1;
+                lblPos.Text = "Pos: " + "X->" + pos.X + " | " + "Y->" + pos.Y;
+
+                if (txtManX.Text != String.Empty)
+                {
+                    txtManX.Text = Convert.ToString(pos.X);
+                }
             }
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            pos.Y = pos.Y + 1;
-            lblPos.Text = "Pos: " + "X->" + pos.X + " | " + "Y->" + pos.Y;
-
-            if (txtManY.Text != String.Empty)
+            if (pos.Y < 272)
             {
-                txtManY.Text = Convert.ToString(pos.Y);
+                pos.Y = pos.Y + 1;
+                lblPos.Text = "Pos: " + "X->" + pos.X + " | " + "Y->" + pos.Y;
+
+                if (txtManY.Text != String.Empty)
+                {
+                    txtManY.Text = Convert.ToString(pos.Y);
+                }
             }
         }
 
@@ -266,23 +359,30 @@ namespace Designer
         private void btnMan_Click(object sender, EventArgs e)
         {
             // Manueller button:
+            int tempX,tempY;
 
-            locked = true;
-            lblLock.Text = "Gesperrt";
-            btnEvent.Visible = true;
-            btnN.Visible = true;
-            btnO.Visible = true;
-            btnS.Visible = true;
-            btnW.Visible = true;
+            tempX=Convert.ToInt32(txtManX.Text);
+            tempY=Convert.ToInt32(txtManY.Text);
+
+            if (tempX > 0 && tempX <= 290 && tempY > 0 && tempY <= 272)
+            {
+
+                pos.X = tempX;
+                pos.Y = tempY;
+
+                lblPos.Text = "Pos: " + "X->" + pos.X + " | " + "Y->" + pos.Y;
 
 
-            pos.X = Convert.ToInt32(txtManX.Text);
-            pos.Y = Convert.ToInt32(txtManY.Text);
-
-            lblPos.Text = "Pos: " + "X->" + pos.X + " | " + "Y->" + pos.Y;
+                locked = true;
+                lblLock.Text = "Gesperrt";
+                btnEvent.Visible = true;
+                btnN.Visible = true;
+                btnO.Visible = true;
+                btnS.Visible = true;
+                btnW.Visible = true;
+            }
 
         }
     }
 }
 
-//Penis
