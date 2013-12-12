@@ -135,7 +135,7 @@ namespace Designer
 
             if (cBoxNorden.Checked)
             {
-                if (pos.Y -(Convert.ToInt32(txtNorden.Text)) < 1)
+                if (pos.Y -(Convert.ToInt32(txtNorden.Text)) < 2)
                 {
                     gültig = 0;
                 }
@@ -146,7 +146,7 @@ namespace Designer
             
             if (cBoxOsten.Checked)
             {
-                if (pos.X + (Convert.ToInt32(txtOsten.Text)) < 290)
+                if (pos.X + (Convert.ToInt32(txtOsten.Text)) > 290)
                 {
                     gültig = 0;
                 }
@@ -157,7 +157,7 @@ namespace Designer
             
             if (cBoxSüden.Checked)
             {
-                if (pos.Y + (Convert.ToInt32(txtSüden.Text)) < 272)
+                if (pos.Y + (Convert.ToInt32(txtSüden.Text)) > 271)
                 {
                     gültig = 0;
                 }
@@ -168,7 +168,7 @@ namespace Designer
             
             if (cBoxWesten.Checked)
             {
-                if (pos.X - (Convert.ToInt32(txtNorden.Text)) < 1)
+                if (pos.X - (Convert.ToInt32(txtWesten.Text)) < 2)
                 {
                     gültig = 0;
                 }
