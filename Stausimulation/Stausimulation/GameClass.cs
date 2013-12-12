@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data;
+using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -30,8 +32,10 @@ namespace Stausimulation
         /// and initialize them as well.
         protected override void Initialize()
         {
-            // TODO: Bild laden und nach spawns durchsuchen
-            //p_arr.Add(new Point(x, y));
+            // TODO: Datei laden und nach spawns durchsuchen
+            //p_arr.Add(new Point(x, y)); 
+
+            IsMouseVisible = true;
 
             base.Initialize();
         }
@@ -58,7 +62,6 @@ namespace Stausimulation
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            // Allows the game to exit
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
