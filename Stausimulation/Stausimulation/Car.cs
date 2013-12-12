@@ -16,10 +16,8 @@ namespace Stausimulation
     {
         public GameClass game
         {
-            get
-            { throw new System.NotImplementedException(); }
-            set
-            { }
+            get { throw new System.NotImplementedException(); }
+            set { }
         }
 
         static Random rnd = new Random();
