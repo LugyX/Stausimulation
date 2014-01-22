@@ -49,6 +49,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnMan = new System.Windows.Forms.Button();
+            this.bestätigenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.picBox)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -118,7 +119,8 @@
             // 
             this.optionenToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.höheToolStripMenuItem,
-            this.breiteToolStripMenuItem});
+            this.breiteToolStripMenuItem,
+            this.bestätigenToolStripMenuItem});
             this.optionenToolStripMenuItem.Name = "optionenToolStripMenuItem";
             this.optionenToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
             this.optionenToolStripMenuItem.Text = "Optionen";
@@ -128,7 +130,7 @@
             this.höheToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripTextBox1});
             this.höheToolStripMenuItem.Name = "höheToolStripMenuItem";
-            this.höheToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
+            this.höheToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.höheToolStripMenuItem.Text = "Höhe";
             // 
             // toolStripTextBox1
@@ -141,7 +143,7 @@
             this.breiteToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripTextBox2});
             this.breiteToolStripMenuItem.Name = "breiteToolStripMenuItem";
-            this.breiteToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
+            this.breiteToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.breiteToolStripMenuItem.Text = "Breite";
             // 
             // toolStripTextBox2
@@ -362,6 +364,13 @@
             this.btnMan.Visible = false;
             this.btnMan.Click += new System.EventHandler(this.btnMan_Click);
             // 
+            // bestätigenToolStripMenuItem
+            // 
+            this.bestätigenToolStripMenuItem.Name = "bestätigenToolStripMenuItem";
+            this.bestätigenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.bestätigenToolStripMenuItem.Text = "Bestätigen";
+            this.bestätigenToolStripMenuItem.Click += new System.EventHandler(this.bestätigenToolStripMenuItem_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -439,6 +448,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnMan;
+        private System.Windows.Forms.ToolStripMenuItem bestätigenToolStripMenuItem;
     }
 }
 

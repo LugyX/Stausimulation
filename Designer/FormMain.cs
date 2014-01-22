@@ -110,7 +110,7 @@ namespace Designer
 
             combField.Text = "Unterscheidungsfeld";
 
-            this.ClientSize = new System.Drawing.Size(481, 424);
+            this.ClientSize = new System.Drawing.Size((picBox.Width + 265), (picBox.Height + 152));
 
             picBox.Refresh();
         }
@@ -135,7 +135,7 @@ namespace Designer
 
             if (cBoxNorden.Checked)
             {
-                if (pos.Y -(Convert.ToInt32(txtNorden.Text)) < 2)
+                if (pos.Y -(Convert.ToInt32(txtNorden.Text)) < 1)
                 {
                     gültig = 0;
                 }
@@ -146,7 +146,7 @@ namespace Designer
             
             if (cBoxOsten.Checked)
             {
-                if (pos.X + (Convert.ToInt32(txtOsten.Text)) > 290)
+                if (pos.X + (Convert.ToInt32(txtOsten.Text)) > SCREEN_WIDTH)
                 {
                     gültig = 0;
                 }
@@ -157,7 +157,7 @@ namespace Designer
             
             if (cBoxSüden.Checked)
             {
-                if (pos.Y + (Convert.ToInt32(txtSüden.Text)) > 271)
+                if (pos.Y + (Convert.ToInt32(txtSüden.Text)) > SCREEN_HEIGHT)
                 {
                     gültig = 0;
                 }
@@ -168,7 +168,7 @@ namespace Designer
             
             if (cBoxWesten.Checked)
             {
-                if (pos.X - (Convert.ToInt32(txtWesten.Text)) < 2)
+                if ((pos.X - (Convert.ToInt32(txtNorden.Text)) < 1))
                 {
                     gültig = 0;
                 }
@@ -219,7 +219,7 @@ namespace Designer
 
 
 
-                            txtManX.Text = string.Empty;
+                txtManX.Text = string.Empty;
                 txtManY.Text = string.Empty;
 
                 str_map[pos.X, pos.Y] = result;
@@ -236,7 +236,7 @@ namespace Designer
                 btnS.Visible = false;
                 btnW.Visible = false;
 
-                this.ClientSize = new System.Drawing.Size(308, 424);
+                this.ClientSize = new System.Drawing.Size((picBox.Width + 18), (picBox.Height + 152));
             }
             else
             {
@@ -296,21 +296,6 @@ namespace Designer
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (pos.Y > 1)
-            {
-                pos.Y = pos.Y - 1;
-                lblPos.Text = "Pos: " + "X->" + pos.X + " | " + "Y->" + pos.Y;
-
-                if (txtManY.Text != String.Empty)
-                {
-                    txtManY.Text = Convert.ToString(pos.Y);
-                }
-            }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
             if (pos.X > 1)
             {
                 pos.X = pos.X - 1;
@@ -323,23 +308,24 @@ namespace Designer
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            if (pos.X < 290)
+
+            if (pos.Y > 1)
             {
-                pos.X = pos.X + 1;
+                pos.Y = pos.Y - 1;
                 lblPos.Text = "Pos: " + "X->" + pos.X + " | " + "Y->" + pos.Y;
 
-                if (txtManX.Text != String.Empty)
+                if (txtManY.Text != String.Empty)
                 {
-                    txtManX.Text = Convert.ToString(pos.X);
+                    txtManY.Text = Convert.ToString(pos.Y);
                 }
             }
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-            if (pos.Y < 272)
+            if (pos.Y < SCREEN_WIDTH)
             {
                 pos.Y = pos.Y + 1;
                 lblPos.Text = "Pos: " + "X->" + pos.X + " | " + "Y->" + pos.Y;
@@ -347,6 +333,20 @@ namespace Designer
                 if (txtManY.Text != String.Empty)
                 {
                     txtManY.Text = Convert.ToString(pos.Y);
+                }
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (pos.X < SCREEN_HEIGHT)
+            {
+                pos.X = pos.X + 1;
+                lblPos.Text = "Pos: " + "X->" + pos.X + " | " + "Y->" + pos.Y;
+
+                if (txtManX.Text != String.Empty)
+                {
+                    txtManX.Text = Convert.ToString(pos.X);
                 }
             }
         }
@@ -364,7 +364,7 @@ namespace Designer
             tempX=Convert.ToInt32(txtManX.Text);
             tempY=Convert.ToInt32(txtManY.Text);
 
-            if (tempX > 0 && tempX <= 290 && tempY > 0 && tempY <= 272)
+            if (tempX > 0 && tempX <= SCREEN_WIDTH && tempY > 0 && tempY <= SCREEN_HEIGHT)
             {
 
                 pos.X = tempX;
@@ -382,6 +382,61 @@ namespace Designer
                 btnW.Visible = true;
             }
 
+        }
+
+        private void bestätigenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Größe Übernehmen (picBox)
+            if (toolStripTextBox1 != null && toolStripTextBox2 != null)
+            {
+                picBox.Width = Convert.ToInt16(toolStripTextBox1.Text);
+                picBox.Height = Convert.ToInt16(toolStripTextBox2.Text);
+
+                SCREEN_WIDTH = picBox.Width;
+                SCREEN_HEIGHT = picBox.Height;
+
+                this.picBox.Size = new System.Drawing.Size(picBox.Width, picBox.Height);
+                this.ClientSize = new System.Drawing.Size((picBox.Width + 18), (picBox.Height + 152));
+
+                label1.Location = new Point(label1.Location.X, (picBox.Height + 49));
+                label2.Location = new Point(label2.Location.X, (picBox.Height + 78));
+                txtManX.Location = new Point(txtManX.Location.X, (picBox.Height + 45));
+                txtManY.Location = new Point(txtManX.Location.X, (picBox.Height + 73));
+                btnN.Location = new Point(btnN.Location.X, (picBox.Height + 33));
+                btnO.Location = new Point(btnO.Location.X, (picBox.Height + 62));
+                btnS.Location = new Point(btnS.Location.X, (picBox.Height + 91));
+                btnW.Location = new Point(btnW.Location.X, (picBox.Height + 62));
+                btnMan.Location = new Point(btnMan.Location.X, (picBox.Height + 101));
+                btnEvent.Location = new Point(btnEvent.Location.X, (picBox.Height + 30));
+                cBoxNorden.Location = new Point( (picBox.Width + 18),cBoxNorden.Location.Y);
+                cBoxOsten.Location = new Point((picBox.Width + 18), cBoxOsten.Location.Y);
+                cBoxSüden.Location = new Point((picBox.Width + 18), cBoxSüden.Location.Y);
+                cBoxWesten.Location = new Point((picBox.Width + 18), cBoxWesten.Location.Y);
+                txtNorden.Location = new Point((picBox.Width + 97), txtNorden.Location.Y);
+                txtOsten.Location = new Point((picBox.Width + 97), txtOsten.Location.Y);
+                txtSüden.Location = new Point((picBox.Width + 97), txtSüden.Location.Y);
+                txtWesten.Location = new Point((picBox.Width + 97), txtWesten.Location.Y);
+                combField.Location = new Point((picBox.Width + 97), combField.Location.Y);
+                btnCreate.Location = new Point((picBox.Width + 18), btnCreate.Location.Y);
+
+                str_map = new string[SCREEN_WIDTH, SCREEN_HEIGHT];
+                bit_map = new Bitmap(picBox.Width, picBox.Height);
+                picBox.Image = bit_map;
+
+                for (int x = 0; x < SCREEN_WIDTH; x++)
+                {
+                    for (int y = 0; y < SCREEN_HEIGHT; y++)
+                    {
+                        str_map[x, y] = "0";
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Kein Wert eingetragen");
+            }
+
+            
         }
     }
 }
