@@ -9,6 +9,7 @@ namespace Stausimulation
         {
             using (GameClass game = new GameClass())
             {
+               
                 game.Run();
             }
         }
